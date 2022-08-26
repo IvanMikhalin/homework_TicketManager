@@ -1,4 +1,4 @@
-public class Ticket implements Comparable<Ticket>{
+public class Ticket implements Comparable<Ticket> {
     public Ticket(int id, int cost, String from, String to, int travelTime) {
         this.id = id;
         this.cost = cost;
@@ -32,8 +32,7 @@ public class Ticket implements Comparable<Ticket>{
         }
         if (this.cost > o.cost) {
             return 1;
-        }
-        else {
+        } else {
             return 0;
         }
     }
