@@ -39,10 +39,28 @@ public class TicketManagerTest {
     }
 
     @Test
-    public void shouldFindTicketsByMatches() {
+    public void shouldFindSeveralTicketsByMatches() {
         Arrays.sort(repo.getItems());
         Ticket[] expected = {item1, item7};
         Ticket[] actual = manager.searchBy("SOC", "VKO");
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldFindOnlyOneTicketByMatches() {
+        Arrays.sort(repo.getItems());
+        Ticket[] expected = {item5};
+        Ticket[] actual = manager.searchBy("AMS", "DOM");
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldFindNoTicketsByMatches() {
+        Arrays.sort(repo.getItems());
+        Ticket[] expected = {};
+        Ticket[] actual = manager.searchBy("AMS", "VKO");
 
         Assertions.assertArrayEquals(expected, actual);
     }
